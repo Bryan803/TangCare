@@ -1,3 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        @apply scroll-smooth;
+    }
+    
+    body {
+        @apply font-sans text-foreground bg-white antialiased;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-bold tracking-tighter;
+    }
+}
+
+@layer components {
+    /* Primary Button - Flat Design */
+    .btn-primary {
+        @apply inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-semibold rounded-md transition-all duration-200 hover:bg-blue-600 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary;
+    }
+    
+    /* Secondary Button */
+    .btn-secondary {
+        @apply inline-flex items-center justify-center px-8 py-4 bg-muted text-foreground font-semibold rounded-md transition-all duration-200 hover:bg-gray-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400;
+    }
+    
+    /* Outline Button - Bold border, fills on hover */
+    .btn-outline {
+        @apply inline-flex items-center justify-center px-8 py-4 bg-transparent border-4 border-primary text-primary font-semibold rounded-md transition-all duration-200 hover:bg-primary hover:text-white hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary;
+    }
+    
+    /* Card - Flat, no shadow */
+    .card {
+        @apply bg-white p-6 rounded-lg transition-all duration-200;
+    }
+    
+    .card-interactive {
+        @apply card cursor-pointer hover:scale-[1.02];
+    }
+}
