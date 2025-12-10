@@ -22,7 +22,11 @@
             <!-- Desktop Auth Links -->
             <div class="hidden md:flex items-center gap-4">
                 @auth
-                    <a href="/dashboard" class="btn-secondary !py-2 !px-4">Dashboard</a>
+                    <a href="/dashboard" class="text-foreground font-medium hover:text-primary transition-colors duration-200">Dashboard</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="btn-secondary !py-2 !px-4">Logout</button>
+                    </form>
                 @else
                     <a href="/login" class="text-foreground font-medium hover:text-primary transition-colors duration-200">Login</a>
                     <a href="/register" class="btn-primary !py-2 !px-6">Register</a>
@@ -59,7 +63,11 @@
                 
                 <div class="pt-4 border-t-2 border-gray-100 space-y-3">
                     @auth
-                        <a href="/dashboard" class="block btn-secondary text-center">Dashboard</a>
+                        <a href="/dashboard" class="block text-foreground font-medium py-2 text-center hover:text-primary transition-colors">Dashboard</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="w-full btn-secondary">Logout</button>
+                        </form>
                     @else
                         <a href="/login" class="block text-foreground font-medium py-2 text-center hover:text-primary transition-colors">Login</a>
                         <a href="/register" class="block btn-primary text-center">Register</a>
