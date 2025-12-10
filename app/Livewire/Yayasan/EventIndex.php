@@ -42,8 +42,14 @@ class EventIndex extends Component
     {
         $user = auth()->user();
         
-        if (!$user->isYayasan() || !$user->yayasan) {
+        if (!$user->isYayasan()) {
             abort(403, 'Unauthorized');
+        }
+        
+        // Redirect to profile setup if no yayasan record exists
+        if (!$user->yayasan) {
+            session()->flash('warning', 'Please complete your foundation profile first.');
+            return redirect()->route('yayasan.profile');
         }
         
         $yayasan = $user->yayasan;

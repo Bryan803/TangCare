@@ -36,7 +36,12 @@
                 </div>
             @endif
             
-            <!-- Success Message -->
+            <!-- Flash Messages -->
+            @if(session('warning'))
+                <div class="mb-6 px-4 py-3 bg-accent/10 border-2 border-accent text-accent rounded-lg font-medium">
+                    {{ session('warning') }}
+                </div>
+            @endif
             @if(session('success'))
                 <div class="mb-6 px-4 py-3 bg-secondary/10 border-2 border-secondary text-secondary rounded-lg font-medium">
                     {{ session('success') }}

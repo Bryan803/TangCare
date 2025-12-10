@@ -18,14 +18,14 @@
                     <a href="{{ route('dashboard') }}" class="text-foreground font-medium hover:text-primary transition-colors duration-200">Dashboard</a>
                     <a href="{{ route('home') }}" class="text-gray-600 font-medium hover:text-primary transition-colors duration-200">Home</a>
                     @if(auth()->user()->isDonor())
-                        <a href="#" class="text-gray-600 font-medium hover:text-primary transition-colors duration-200">My Donations</a>
-                        <a href="#" class="text-gray-600 font-medium hover:text-primary transition-colors duration-200">Find Events</a>
+                        <span class="text-gray-400 font-medium cursor-not-allowed" title="Coming soon">My Donations</span>
+                        <span class="text-gray-400 font-medium cursor-not-allowed" title="Coming soon">Find Events</span>
                     @elseif(auth()->user()->isYayasan())
-                        <a href="#" class="text-gray-600 font-medium hover:text-primary transition-colors duration-200">My Events</a>
-                        <a href="#" class="text-gray-600 font-medium hover:text-primary transition-colors duration-200">Donations</a>
+                        <a href="{{ route('yayasan.events') }}" class="text-gray-600 font-medium hover:text-primary transition-colors duration-200">My Events</a>
+                        <span class="text-gray-400 font-medium cursor-not-allowed" title="Coming soon">Donations</span>
                     @elseif(auth()->user()->isAdmin())
-                        <a href="#" class="text-gray-600 font-medium hover:text-primary transition-colors duration-200">Users</a>
-                        <a href="#" class="text-gray-600 font-medium hover:text-primary transition-colors duration-200">Yayasans</a>
+                        <span class="text-gray-400 font-medium cursor-not-allowed" title="Coming soon">Users</span>
+                        <a href="{{ route('admin.yayasans') }}" class="text-gray-600 font-medium hover:text-primary transition-colors duration-200">Yayasans</a>
                     @endif
                 @else
                     {{-- Guest: Show homepage section links --}}
@@ -92,14 +92,14 @@
                     <a href="{{ route('dashboard') }}" class="block text-foreground font-medium py-2 hover:text-primary transition-colors">Dashboard</a>
                     <a href="{{ route('home') }}" class="block text-gray-600 font-medium py-2 hover:text-primary transition-colors">Home</a>
                     @if(auth()->user()->isDonor())
-                        <a href="#" class="block text-gray-600 font-medium py-2 hover:text-primary transition-colors">My Donations</a>
-                        <a href="#" class="block text-gray-600 font-medium py-2 hover:text-primary transition-colors">Find Events</a>
+                        <span class="block text-gray-400 font-medium py-2 cursor-not-allowed">My Donations (Coming soon)</span>
+                        <span class="block text-gray-400 font-medium py-2 cursor-not-allowed">Find Events (Coming soon)</span>
                     @elseif(auth()->user()->isYayasan())
-                        <a href="#" class="block text-gray-600 font-medium py-2 hover:text-primary transition-colors">My Events</a>
-                        <a href="#" class="block text-gray-600 font-medium py-2 hover:text-primary transition-colors">Donations</a>
+                        <a href="{{ route('yayasan.events') }}" class="block text-gray-600 font-medium py-2 hover:text-primary transition-colors">My Events</a>
+                        <span class="block text-gray-400 font-medium py-2 cursor-not-allowed">Donations (Coming soon)</span>
                     @elseif(auth()->user()->isAdmin())
-                        <a href="#" class="block text-gray-600 font-medium py-2 hover:text-primary transition-colors">Users</a>
-                        <a href="#" class="block text-gray-600 font-medium py-2 hover:text-primary transition-colors">Yayasans</a>
+                        <span class="block text-gray-400 font-medium py-2 cursor-not-allowed">Users (Coming soon)</span>
+                        <a href="{{ route('admin.yayasans') }}" class="block text-gray-600 font-medium py-2 hover:text-primary transition-colors">Yayasans</a>
                     @endif
                     <div class="pt-3 border-t-2 border-gray-100">
                         <form method="POST" action="{{ route('logout') }}">
