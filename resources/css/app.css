@@ -5,6 +5,11 @@
 @tailwind utilities;
 
 @layer base {
+    /* Hide Alpine.js elements until initialized */
+    [x-cloak] {
+        display: none !important;
+    }
+    
     html {
         @apply scroll-smooth;
     }

@@ -1,12 +1,14 @@
 <div 
     class="relative"
-    wire:poll.10s
-    x-data="{ open: @entangle('isOpen') }"
-    @click.outside="open = false; $wire.closeDropdown()"
+    x-data="{ open: false }"
+    @click.outside="open = false"
 >
+    <!-- Poll only the data, not the whole component UI -->
+    <div wire:poll.15s class="hidden"></div>
+    
     <!-- Bell Button -->
     <button 
-        @click="open = !open; $wire.toggleDropdown()"
+        @click="open = !open"
         class="relative p-2 text-gray-600 hover:text-primary transition-colors rounded-lg hover:bg-muted"
     >
         <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -30,8 +32,8 @@
         x-transition:leave="transition ease-in duration-100"
         x-transition:leave-start="opacity-100 scale-100"
         x-transition:leave-end="opacity-0 scale-95"
+        x-cloak
         class="absolute right-0 mt-2 w-80 bg-white rounded-lg border-2 border-gray-100 shadow-lg z-50"
-        style="display: none;"
     >
         <!-- Header -->
         <div class="flex items-center justify-between px-4 py-3 border-b border-gray-100">
@@ -102,3 +104,4 @@
         </div>
     </div>
 </div>
+

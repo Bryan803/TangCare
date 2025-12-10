@@ -8,23 +8,6 @@ use Livewire\Component;
 
 class NotificationBell extends Component
 {
-    public bool $isOpen = false;
-
-    /**
-     * Toggle the notification dropdown.
-     */
-    public function toggleDropdown(): void
-    {
-        $this->isOpen = !$this->isOpen;
-    }
-
-    /**
-     * Close the dropdown.
-     */
-    public function closeDropdown(): void
-    {
-        $this->isOpen = false;
-    }
 
     /**
      * Mark a specific notification as read.
